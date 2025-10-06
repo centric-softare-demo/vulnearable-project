@@ -47,7 +47,7 @@ dependencyCheck {
     formats = listOf("HTML", "JSON")
 
     nvd {
-        apiKey = "KEY"
+        apiKey = "soMeKind01234RandomKeyFor4567Test"
         maxRetryCount = 3
         delay = 4000
     }
