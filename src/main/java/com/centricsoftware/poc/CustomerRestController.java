@@ -30,6 +30,11 @@ public class CustomerRestController {
 	return customerService.findByLastName(lastName);
     }
 
+    @GetMapping("/search2")
+    public List<Customer> findAllCustomersByName(@RequestParam(value = "firstName") String firstName) {
+	return customerService.findByName(firstName);
+    }
+
     @GetMapping("/{id}/vulnerable-csrf-stored-xss")
     public Customer greet(@PathVariable Long id,
 	    @RequestParam(value = "lastName", required = false, defaultValue = "John Doe") String lastName) {

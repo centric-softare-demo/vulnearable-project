@@ -17,6 +17,10 @@ public class CustomerService {
 	return customerRepository.findByLastName(lastName);
     }
 
+    public List<Customer> findByName(String firstName) {
+	return customerRepository.findByName(firstName);
+    }
+
     public Customer save(Customer customer) {
 	return customerRepository.saveAndFlush(customer);
     }

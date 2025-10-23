@@ -5,9 +5,6 @@
 # Ignore Gradle GUI config
 gradle-app.setting
 
-# Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
-
 # Avoid ignore Gradle wrappper properties
 !gradle-wrapper.properties
 
@@ -57,3 +54,8 @@ out/
 
 ### VS Code ###
 .vscode/
+**gradle*.jar
+
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md

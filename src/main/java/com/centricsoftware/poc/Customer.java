@@ -16,31 +16,32 @@ public class Customer {
     private String greetName;
 
     public Long getId() {
-	return id;
+        return id;
     }
 
     public String getFirstName() {
-	return firstName;
+        return firstName;
     }
 
     public void setFirstName(String firstName) {
-	this.firstName = firstName;
+        this.firstName = firstName;
     }
 
     public String getLastName() {
-	return lastName;
+        return lastName;
     }
 
     public void setLastName(String lastName) {
-	this.lastName = lastName;
+        this.lastName = lastName;
     }
 
     public String getGreetName() {
-	return greetName;
+        String p = "good";
+        return greetName;
     }
 
     public void setGreetName(String greetName) {
-	this.greetName = greetName;
+        this.greetName = greetName;
     }
 
 }
