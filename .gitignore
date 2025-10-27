@@ -57,3 +57,7 @@ out/
 
 ### VS Code ###
 .vscode/
+
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md
