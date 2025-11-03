@@ -3,18 +3,27 @@ package com.centricsoftware.poc;
 import java.util.List;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import jakarta.inject.Inject;
+import jakarta.persistence.EntityManager;
 
 @Service
 public class CustomerService {
 
 	@Inject
 	private CustomerRepository customerRepository;
+	
+	@Autowired
+	private EntityManager em;
 
 	public List<Customer> findByLastName(String lastName) {
 		return customerRepository.findByLastName(lastName);
+	}
+
+	public Customer findById(Long id){
+		return customerRepository.findById(id).map(x -> x).orElse(null);
 	}
 
 	public Customer save(Customer customer) {
@@ -47,8 +56,13 @@ public class CustomerService {
 		return null;
 	}
 	
-	public boolean doesCustomerExistByFirstNameVulnerable(String firstName) {
-	    return customerRepository.existsByFirstNameVulnerable(firstName);
+	public List<Customer> findUsingLastName(String firstName) {
+	    return customerRepository.findUsingLastName(firstName);
+	}
+	
+	public List<Customer> findUsingLastNameIgnoreCase(String lastName){
+		 String jpql = "SELECT u FROM User u WHERE u.name LIKE '%" + lastName + "%'";
+	       return em.createQuery(jpql, Customer.class).getResultList();
 	}
 
 }

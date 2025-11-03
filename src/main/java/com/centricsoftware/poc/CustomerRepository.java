@@ -13,5 +13,10 @@ public interface CustomerRepository extends JpaRepository<Customer, Long> {
 
 	@Query(value = "SELECT CASE WHEN COUNT(c) > 0 THEN TRUE ELSE FALSE END FROM Customer c WHERE c.first_name = ?1", nativeQuery = true)
 	boolean existsByFirstNameVulnerable(String firstName);
+	
+	@Query(value = "SELECT * FROM user WHERE last_name = '" + "?1" + "'", nativeQuery = true)
+	List<Customer> findUsingLastName(String lastName);
+	
+	
 
 }

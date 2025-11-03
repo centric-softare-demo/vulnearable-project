@@ -47,4 +47,23 @@ public class CustomerRestController {
 		return customerService.update(customer);
 	}
 
+	@GetMapping("/{id}")
+	public Customer updateCustomer2(@PathVariable Long id, @RequestParam String lastName){
+		Customer c = customerService.findById(id);
+		c.setLastName(lastName);
+		return customerService.save(c);
+	}
+	
+	@GetMapping("/lookup")
+	public List<Customer> updateCustomer3(@RequestParam String lastName){
+		return customerService.findUsingLastNameIgnoreCase(lastName);
+	}
+	
+	@GetMapping("/lookup2")
+	public List<Customer> searchCustomer(@RequestParam String lastName){
+		return customerService.findUsingLastName(lastName);
+	}
+	
+	
+
 }

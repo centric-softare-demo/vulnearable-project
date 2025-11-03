@@ -3,7 +3,7 @@ plugins {
 	id("org.springframework.boot") version "3.4.0"
 	id("io.spring.dependency-management") version "1.1.7"
 	id("org.graalvm.buildtools.native") version "0.10.6"
-	id("org.owasp.dependencycheck") version "12.1.3"
+	id("org.owasp.dependencycheck") version "12.1.8"
     id("org.sonarqube") version "6.3.1.5724"
 }
 
