@@ -56,7 +56,7 @@ jobs:
         # detect_search_depth: 2
         # detect_args: '--detect.diagnostic=true'
         # detect_config_path: '/Users/Config/application.properties'
-        # coverity_build_command: mvn clean install
+        coverity_build_command: ./gradlew clean build
         # coverity_clean_command: mvn clean
         # coverity_config_path: /Users/Config/coverity.yml
         # coverity_args: --config-override capture.build.build-command=mvn install
