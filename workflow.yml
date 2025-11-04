@@ -39,7 +39,7 @@ jobs:
         # mark_build_status: 'success'
 
         ### Signature scan
-        # polaris_test_sca_type: "SCA-SIGNATURE"
+        polaris_test_sca_type: "SCA-SIGNATURE"
 
         ### Uncomment this to use Source Upload method. Default value is hybrid (build based)
         # polaris_test_sast_location: "remote"
