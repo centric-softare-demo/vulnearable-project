@@ -20,6 +20,7 @@ jobs:
         polaris_application_name: ${{ github.event.repository.name }}
         polaris_project_name: ${{ github.event.repository.name }}
         polaris_assessment_types: "SCA,SAST"
+        polaris_assessment_mode: SOURCE_UPLOAD
         # polaris_waitForScan: false  # Used to support the async mode
         # project_directory: ${{ vars.PROJECT_DIRECTORY }}
 
