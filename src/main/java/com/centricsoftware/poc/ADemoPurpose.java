@@ -1,6 +1,6 @@
 package com.centricsoftware.poc;
 
-import java.util.Map;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,9 +18,9 @@ public class ADemoPurpose {
     private CustomerService customerService;
 	
 	@GetMapping("/vulnerable-blind-sqli-idor")
-	public Map<String, Boolean> checkCustomerExistenceVulnerable(@RequestParam(value = "firstName") String firstName) {
-	    boolean exists = customerService.doesCustomerExistByFirstNameVulnerable(firstName);
-	    return Map.of("customerExists", exists);
+	public List<Customer> checkCustomerExistenceVulnerable(@RequestParam(value = "firstName") String firstName) {
+	    return customerService.doesCustomerExistByFirstName(firstName);
+	    
 	}
 	
 	

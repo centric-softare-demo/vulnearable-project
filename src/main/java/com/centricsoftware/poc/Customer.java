@@ -14,6 +14,20 @@ public class Customer {
 	private String firstName;
 	private String lastName;
 	private String greetName;
+	
+	
+
+	public Customer() {
+		super();
+	}
+
+	public Customer(Long id, String firstName, String lastName, String greetName) {
+		super();
+		this.id = id;
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.greetName = greetName;
+	}
 
 	public Long getId() {
 		return id;
