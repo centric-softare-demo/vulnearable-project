@@ -1,6 +1,8 @@
 package com.centricsoftware.poc.mapper;
 
+import java.util.List;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -43,6 +45,10 @@ public class UserMapper {
 		response.setId(entity.getId());
 		response.setActive(entity.isActive());
 		return response;
+	}
+
+	public List<UserResponse> mapToUserResponses(List<User> userEntities) {
+		return userEntities.stream().map(entity -> mapToReponse(entity)).collect(Collectors.toList());
 	}
 
 }

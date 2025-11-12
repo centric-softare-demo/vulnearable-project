@@ -20,7 +20,7 @@ import jakarta.inject.Inject;
 @RequestMapping("/api/v1/rest/customers")
 public class CustomerRestController {
 
-	@Inject
+		@Inject
 	private CustomerService customerService;
 
 	@GetMapping("/vulnerable-xss")
@@ -57,14 +57,29 @@ public class CustomerRestController {
 		return customerService.save(c);
 	}
 	
-	@GetMapping("/lookup")
-	public List<Customer> updateCustomer3(@RequestParam String lastName){
+	@GetMapping("/lookup1-em")
+	public List<Customer> updateCustomer3(@RequestParam(value = "lastName") String lastName){
 		return customerService.findUsingLastNameIgnoreCase(lastName);
 	}
 	
 	@GetMapping("/lookup2")
-	public List<Customer> searchCustomer(@RequestParam String lastName){
+	public List<Customer> searchCustomer(@RequestParam(value = "lastName") String lastName){
 		return customerService.findUsingLastName(lastName);
+	}
+	
+	@GetMapping("/lookup3")
+	public List<Customer> searchCustomerss(@RequestParam(value = "lastName") String lastName){
+		return customerService.findUsingLastNameAdd(lastName);
+	}
+	
+	@GetMapping("/lookup4-em-native")
+	public List<Customer> somethingCustomerzz(@RequestParam(value = "lastName") String lastName){
+		return customerService.doesCustomerExistByFirstName(lastName);
+	}
+	
+	@GetMapping("/lookup5")
+	public List<Customer> somethingzCustomerzz(@RequestParam(value = "lastName") String lastName){
+		return customerService.doesCustomerExistByFirstName5(lastName);
 	}
 	
 	
