@@ -2,7 +2,6 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.4.0"
 	id("io.spring.dependency-management") version "1.1.7"
-	id("org.graalvm.buildtools.native") version "0.10.6"
 	id("org.owasp.dependencycheck") version "12.1.8"
     id("org.sonarqube") version "6.3.1.5724"
 }
@@ -22,19 +21,29 @@ repositories {
 }
 
 dependencies {
+	implementation("org.springframework.boot:spring-boot-starter-actuator")
+	implementation("org.springframework.boot:spring-boot-starter-security")
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-authorization-server")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("com.h2database:h2")
+	implementation("org.liquibase:liquibase-core")
+	implementation("org.springframework.boot:spring-boot-configuration-processor")
+	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.14")
+	
+	
     implementation("jakarta.inject:jakarta.inject-api")
     implementation("org.apache.poi:poi:3.16")
-
-
-
+    
+    runtimeOnly("org.postgresql:postgresql")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
+	
+	testRuntimeOnly("com.h2database:h2")
+	
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+	
 }
 
 dependencyLocking {

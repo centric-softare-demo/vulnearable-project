@@ -1,4 +1,4 @@
-package com.centricsoftware.poc;
+package com.centricsoftware.poc.api.rest;
 
 import java.util.List;
 
@@ -10,6 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.centricsoftware.poc.entity.Customer;
+import com.centricsoftware.poc.service.CustomerService;
 
 import jakarta.inject.Inject;
 
