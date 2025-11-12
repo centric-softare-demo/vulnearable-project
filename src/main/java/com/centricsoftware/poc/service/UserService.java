@@ -1,5 +1,7 @@
 package com.centricsoftware.poc.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -48,6 +50,10 @@ public class UserService {
 	public UserPasswordUpdateResponse updateUserPassword(UserPasswordUpdateRequest request) {
 		return null;
 		
+	}
+
+	public List<UserResponse> getAllUser() {
+		return userMapper.mapToUserResponses(userRepository.findAll());
 	}
 
 }
