@@ -2,6 +2,7 @@ plugins {
 	java
 	id("org.springframework.boot") version "3.4.0"
 	id("io.spring.dependency-management") version "1.1.7"
+	id("org.graalvm.buildtools.native") version "0.10.6"
 	id("org.owasp.dependencycheck") version "12.1.8"
     id("org.sonarqube") version "6.3.1.5724"
 }
@@ -21,29 +22,18 @@ repositories {
 }
 
 dependencies {
-	implementation("org.springframework.boot:spring-boot-starter-actuator")
-	implementation("org.springframework.boot:spring-boot-starter-security")
-	implementation("org.springframework.boot:spring-boot-starter-oauth2-authorization-server")
 	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-webflux")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.liquibase:liquibase-core")
-	implementation("org.springframework.boot:spring-boot-configuration-processor")
-	implementation("org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.14")
-	
-	
+	implementation("com.h2database:h2")
     implementation("jakarta.inject:jakarta.inject-api")
     implementation("org.apache.poi:poi:3.16")
-    
-    runtimeOnly("org.postgresql:postgresql")
+
+
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
-	
-	testRuntimeOnly("com.h2database:h2")
-	
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
 	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
-	
 }
 
 dependencyLocking {
@@ -52,15 +42,17 @@ dependencyLocking {
 
 dependencyCheck {
 
-    autoUpdate = false
+    autoUpdate = true
     failOnError = false
     formats = listOf("HTML", "JSON")
 
     nvd {
-        apiKey = "soMeKind01234RandomKeyFor4567Test"
+        apiKey = "6bbd31cf-44d0-4114-8ad8-09e2a9bbbbc8"
         maxRetryCount = 3
         delay = 4000
     }
+
+
 
     data {
         driver = "org.postgresql.Driver"
@@ -75,10 +67,15 @@ dependencyCheck {
             nexusEnabled = true
             assemblyEnabled = false
             autoconfEnabled = false
+
+            ossIndex {
+                enabled = true
+                username = "habib000777@gmail.com"
+                password = "207806edb165b79e09be7fbf76b4d62d33d491df"
+            }
         }
 
 }
-
 sonarqube {
     //sonar ee 2025.5
     properties {

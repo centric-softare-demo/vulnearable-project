@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+	xmlns:pro="http://www.liquibase.org/xml/ns/pro"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+						http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd
+						http://www.liquibase.org/xml/ns/pro http://www.liquibase.org/xml/ns/pro/liquibase-pro-latest.xsd">
+
+	<changeSet id="20241016_213400_initial_schema_create_table_Users"
+		author="masud.habib@centricsoftware.com">
+		<createTable tableName="users">
+			<column name="id" type="bigint" autoIncrement="true" startWith="101">
+				<constraints primaryKey="true" />
+			</column>
+			<column name="username" type="varchar(50)">
+				<constraints unique="true" />
+			</column>
+			<column name="email" type="varchar(100)">
+				<constraints unique="true" />
+			</column>
+			<column name="first_name" type="varchar(50)" />
+			<column name="last_name" type="varchar(50)" />
+			<column name="password_hash" type="varchar(100)" />
+			<column name="is_active" type="boolean" />
+			<column name="roles" type="varchar(1024)" />
+			<column name="created_date" type="TIMESTAMP WITH TIME ZONE" />
+			<column name="updated_date" type="TIMESTAMP WITH TIME ZONE" />
+		</createTable>
+	</changeSet>
+</databaseChangeLog>

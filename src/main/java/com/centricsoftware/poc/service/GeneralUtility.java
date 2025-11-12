@@ -1,4 +1,4 @@
-package com.centricsoftware.poc;
+package com.centricsoftware.poc.service;
 
 import java.io.ByteArrayInputStream;
 import java.io.ObjectInputStream;
