@@ -29,15 +29,13 @@ public class CustomerRestController {
 	}
 
 	@GetMapping("/search")
-	public List<Customer> findAllCustomersByLastName(@RequestParam(value = "lastName") String lastName) {
-		return customerService.findByLastName(lastName);
+	public List<Customer> findAllCustomersByLastName(@RequestParam(value = "lastNameSearch") String lastNameSearch) {
+		return customerService.findByLastName(lastNameSearch);
 	}
 
 	@GetMapping("/{id}/vulnerable-csrf-stored-xss")
-	public Customer greet(@PathVariable Long id,
-			@RequestParam(value = "lastName", required = false, defaultValue = "John Doe") String lastName) {
-
-		return customerService.patchCustomerLastName(id, lastName);
+	public Customer greet(@PathVariable Long id, @RequestParam(value = "lastNameExcess", required = false, defaultValue = "John Doe") String lastNameExcess) {
+		return customerService.patchCustomerLastName(id, lastNameExcess);
 	}
 
 	@PostMapping
@@ -58,28 +56,28 @@ public class CustomerRestController {
 	}
 	
 	@GetMapping("/lookup1-em")
-	public List<Customer> updateCustomer3(@RequestParam(value = "lastName") String lastName){
-		return customerService.findUsingLastNameIgnoreCase(lastName);
+	public List<Customer> updateCustomer3(@RequestParam(value = "lastNameA") String lastNameA){
+		return customerService.findUsingLastNameIgnoreCase(lastNameA);
 	}
 	
 	@GetMapping("/lookup2")
-	public List<Customer> searchCustomer(@RequestParam(value = "lastName") String lastName){
-		return customerService.findUsingLastName(lastName);
+	public List<Customer> searchCustomer(@RequestParam(value = "lastNameB") String lastNameB){
+		return customerService.findUsingLastName(lastNameB);
 	}
 	
 	@GetMapping("/lookup3")
-	public List<Customer> searchCustomerss(@RequestParam(value = "lastName") String lastName){
-		return customerService.findUsingLastNameAdd(lastName);
+	public List<Customer> searchCustomerss(@RequestParam(value = "lastNameC") String lastNameC){
+		return customerService.findUsingLastNameAdd(lastNameC);
 	}
 	
 	@GetMapping("/lookup4-em-native")
-	public List<Customer> somethingCustomerzz(@RequestParam(value = "lastName") String lastName){
-		return customerService.doesCustomerExistByFirstName(lastName);
+	public List<Customer> somethingCustomerzz(@RequestParam(value = "lastNameD") String lastNameD){
+		return customerService.doesCustomerExistByFirstName(lastNameD);
 	}
 	
 	@GetMapping("/lookup5")
-	public List<Customer> somethingzCustomerzz(@RequestParam(value = "lastName") String lastName){
-		return customerService.doesCustomerExistByFirstName5(lastName);
+	public List<Customer> somethingzCustomerzz(@RequestParam(value = "lastNameE") String lastNameE){
+		return customerService.doesCustomerExistByFirstName5(lastNameE);
 	}
 	
 	
