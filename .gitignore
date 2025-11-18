@@ -62,3 +62,4 @@ out/
 #Ignore vscode AI rules
 .github\instructions\codacy.instructions.md
 local-development/compose/postgres/postgres-data
+.codacy/codacy.yaml
