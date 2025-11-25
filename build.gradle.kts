@@ -83,8 +83,9 @@ sonarqube {
     //sonar ee 2025.5
     properties {
         property("sonar.projectKey", "demo-vulnearable-project")
-        property("sonar.host.url", "http://localhost:9002")
-        property("sonar.token", "sqp_5ec1d6bc5b0de3ac8f3a896a7eaaa6865f007339")
+        property("sonar.host.url", "SONAR_HOST_URL")
+        property("sonar.token", "SONAR_TOKEN")
+        property("sonar.sources", "src/main, local-development")
     }
 }
 
