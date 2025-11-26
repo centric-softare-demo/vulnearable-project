@@ -3,7 +3,7 @@ plugins {
 	id("org.springframework.boot") version "3.4.0"
 	id("io.spring.dependency-management") version "1.1.7"
 	id("org.owasp.dependencycheck") version "12.1.8"
-    id("org.sonarqube") version "6.3.1.5724"
+    id("org.sonarqube") version "7.0.1.6134"
 }
 
 group = "com.centricsoftware"
@@ -83,8 +83,8 @@ sonarqube {
     //sonar ee 2025.5
     properties {
         property("sonar.projectKey", "demo-vulnearable-project")
-        property("sonar.host.url", "SONAR_HOST_URL")
-        property("sonar.token", "SONAR_TOKEN")
+        property("sonar.host.url", "http://localhost:9002")
+        property("sonar.token", "sqp_5ec1d6bc5b0de3ac8f3a896a7eaaa6865f007339")
         property("sonar.sources", "src/main, local-development")
     }
 }
